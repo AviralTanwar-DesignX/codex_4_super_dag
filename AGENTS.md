@@ -107,7 +107,7 @@ The DAG accepts a dynamic `dag_run.conf` JSON input that supports parallel task 
 
 ### 4. `nc_assign_based_on_master_form`
 
-**Purpose:** In the main form
+**Purpose:** In the main form, based on the value chosen in the question, all the NC's are assigned to the user which is in the master form (for the value chosen in the Main Form)
 
 ```json
 {
@@ -118,29 +118,15 @@ The DAG accepts a dynamic `dag_run.conf` JSON input that supports parallel task 
     }
 }
 ```
+**Field Descriptions:**
 
+* `bot_user_id`: A new or already existing bot user id which will be used by the code to have an authorization token
+* `universal_tag_of_master_form`: Universal tag of the master form from which the user will be fetched based on the answer.
+* `universal_tag_of_field_id_for_user`: Universal Tag ID present in the Question of the Master form and the Main Form from which we will compare the values
+* `module_id_of_the_master_form`: Module id of the master form.
+
+> 
 ---
-
-### 5. `form_submission_on_planning`
-
-**Purpose:** Automatically submits a planning form as part of a pre-audit or strategic phase.
-
-```json
-{
-  "form_submission_on_planning": {
-    "form_id": "67890",
-    "linked_audit_id": "345",
-    "prepopulate_fields": {
-      "site_name": "New Plant",
-      "shift": "A"
-    }
-  }
-}
-```
-
----
-
-> Multiple task keys can be included in a single DAG trigger JSON to support concurrent execution. Codex is responsible for assembling the JSON based on client requirements.
 
 ---
 
