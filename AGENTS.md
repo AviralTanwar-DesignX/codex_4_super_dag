@@ -132,3 +132,22 @@ The DAG accepts a dynamic `dag_run.conf` JSON input that supports parallel task 
 
 ## Examples
 
+Q) I want a bot for hmcl in which the dag sends a mail to the next single form
+for the field ids 123,345,3211 and name of the form is Gemba and there is an image in the question id 55643. Also the bot will change the workflow of the form to Rejected when the form is submitted
+
+Ans) https://airflow.dfos.co:8080/api/v1/dags/hmcl_GlobalStandardBot_main_json_parser/dagRuns
+
+```JSON
+{
+  "submission_mail_for_single_form": {
+    "field_id": "",
+    "attachment_field_id": "",
+    "attachment_field_image_id": "",
+    "form_name": ""
+  },
+  "workflow_approval_status": {
+    "workflow_status": ""
+  }
+}
+```
+---
