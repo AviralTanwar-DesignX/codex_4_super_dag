@@ -183,8 +183,8 @@ The scheduling action can either pull data from specific question IDs or use pre
 Q) I want a bot for hmcl in which the dag sends a mail to the next single form
 for the field ids 123,345,3211 and name of the form is Gemba and there is an image in the question id 55643. Also the bot will change the workflow of the form to Rejected when the form is submitted
 
-Ans) https://airflow.dfos.co:8080/api/v1/dags/hmcl_GlobalStandardBot_main_json_parser/dagRuns
-
+Ans) BOT URL -> https://airflow.dfos.co:8080/api/v1/dags/hmcl_GlobalStandardBot_main_json_parser/dagRuns
+BOT CONFIG -> 
 ```JSON
 {
   "submission_mail_for_single_form": {
@@ -201,6 +201,45 @@ Ans) https://airflow.dfos.co:8080/api/v1/dags/hmcl_GlobalStandardBot_main_json_p
 ---
 <<<<<<< HEAD
 
-Q) Hello
+Q) In amber, I want to send a mail to the next multiple forms users and the mail content should have the foprm name as GEMBA.
+The form is used for scheduling other forms too. The form which it schedules are in module id 50.
+It chooses the form id from question id 1.
+meanwhile the user id is 70. and bot user id is too 70.
+The form's scheduling date will be chosen from 2 question id and the form can only be filled within next 2 weeks.The schedule option should show 1,2,3 on the main screen (in the card).
+And the workflow needs to be Hidden
+
+Ans) BOT URL -> https://airflow.dfos.co:8080/api/v1/dags/amber_GlobalStandardBot_main_json_parser/dagRuns
+
+BOT CONFIG -> 
+```JSON
+{
+  "submission_mail_for_multiple_forms": {
+    "field_id": "",
+    "attachment_field_id": "",
+    "attachment_field_image_id": "",
+    "form_name": "GEMBA"
+  },
+  "basic_schedule_form": {
+    "module_field_id": "",
+    "module_id": "50",
+    "form_field_id": "1",
+    "form_id_schedule": "",
+    "schedule_field_users": "",
+    "schedule_static_users": "70",
+    "bot_user_id": "70",
+    "start_date_field_id": "2",
+    "start_date": "",
+    "end_date_field_id": "",
+    "end_date": "14",
+    "approver_field_id": "",
+    "card_details": "1,2,3"
+  },
+  "workflow_approval_status": {
+    "workflow_status": "8"
+  }
+}
+
+```
+---
 =======
 >>>>>>> ad88ad9924612312293965fdc6866149730e8ff4
