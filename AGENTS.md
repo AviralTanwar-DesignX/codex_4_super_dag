@@ -1,4 +1,4 @@
-# SUPER DAG
+ # SUPER DAG
 
 > **Purpose** &#x20;
 > A data orchestration DAG designed to automate post-form submission workflows including sending notification emails, updating workflow statuses, reassigning users, scheduling follow-up forms, and triggering additional form submissions.
@@ -199,5 +199,8 @@ Ans) https://airflow.dfos.co:8080/api/v1/dags/hmcl_GlobalStandardBot_main_json_p
 }
 ```
 ---
+<<<<<<< HEAD
 
-Q)
+Q) Hello
+=======
+>>>>>>> ad88ad9924612312293965fdc6866149730e8ff4
