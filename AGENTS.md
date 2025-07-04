@@ -254,3 +254,18 @@ BOT CONFIG ->
 
 ```
 ---
+Q-4 ) After submission, the form should go to “Pending at Approver 1”.
+Ans) BOT URL -> https://airflow.dfos.co:8080/api/v1/dags/{company_name}_GlobalStandardBot_main_json_parser/dagRuns
+
+Please write the server name against the company_name.
+
+BOT CONFIG -> 
+```JSON
+{
+  "workflow_approval_status": {
+    "workflow_status": "5"
+  }
+}
+
+```
+---
