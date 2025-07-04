@@ -127,7 +127,55 @@ The DAG accepts a dynamic `dag_run.conf` JSON input that supports parallel task 
 
 > 
 ---
+### 5. `basic_schedule_form`
 
+**Purpose:** This task is used to **schedule a form** based on responses submitted in a main form. It supports both **dynamic** and **static** configurations for form ID, module ID, users, dates, and more.
+
+The scheduling action can either pull data from specific question IDs or use predefined static values.
+
+```json
+{
+  "basic_schedule_form": {
+    "module_field_id": "",
+    "module_id": "",
+    "form_field_id": "",
+    "form_id_schedule": "",
+    "schedule_field_users": "",
+    "schedule_static_users": "",
+    "bot_user_id": "",
+    "start_date_field_id": "",
+    "start_date": "",
+    "end_date_field_id": "",
+    "end_date": "",
+    "approver_field_id": "",
+    "card_details": ""
+  }
+}
+```
+**Field Descriptions:**
+
+* `module_field_id`: 	(Optional) Question ID from which the module ID should be dynamically fetched. Only one value is allowed.
+* `module_id`:  	(Optional) Static module ID of the form to be scheduled. Required if module_field_id is not used. Only one value is allowed.
+* `form_field_id`: 	(Optional) Question ID from which the form ID should be dynamically fetched. Only one value is allowed.
+* `form_id_schedule`: 	(Optional) Static form ID of the form to be scheduled. Required if form_field_id is not used. Only one value is allowed.
+* `schedule_field_users`: (Optional) Question ID from which the user IDs should be dynamically fetched. Only one value is allowed.
+* `schedule_static_users`:	(Optional) Comma-separated static user IDs to assign the scheduled form to.
+* `bot_user_id`: 	(Required) ID of the bot user responsible for the scheduling action.
+* `start_date_field_id`: 	(Optional) Static start date for the scheduled form. Required if start_date_field_id is not used. 
+* `start_date`: If it's static, the it must be passed here i.e. the start date of the form which needs to be scheduled. 
+* `end_date_field_id`: (Optional) Question ID from which the end date should be dynamically fetched.
+* `end_date`:  (Optional) Static end date for the scheduled form. Required if end_date_field_id is not used. It is in number and logic is ( no of days+ Start Date)
+* `approver_field_id`: If there is a secondary form, then the question id where its being approved or rejected needs to be here
+* `card_details`: All the question ids which needs to be shown on the card in the schedule option
+
+> The workflow for this BOT involves a **main form** that contains questions to configure the scheduling of **secondary forms**.  
+> Based on the submitted values, the BOT either **approves or rejects** and schedules follow-up forms accordingly.
+> If `module_field_id` is provided, `module_id` **must** be an empty string (`""`), and **vice versa**.
+> If `form_field_id` is provided, `form_id_schedule` **must** be an empty string, and **vice versa**.
+> If `start_date_field_id` is provided, `start_date` **must** be an empty string, and **vice versa**.
+> If `end_date_field_id` is provided, `end_date` **must** be an empty string, and **vice versa**.
+ 
+---
 ---
 
 ## Examples
@@ -151,3 +199,5 @@ Ans) https://airflow.dfos.co:8080/api/v1/dags/hmcl_GlobalStandardBot_main_json_p
 }
 ```
 ---
+
+Q)
