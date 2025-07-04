@@ -180,10 +180,11 @@ The scheduling action can either pull data from specific question IDs or use pre
 
 ## Examples
 
-Q) I want a bot for hmcl in which the dag sends a mail to the next single form
+Q-1) I want a bot for hmcl in which the dag sends a mail to the next single form
 for the field ids 123,345,3211 and name of the form is Gemba and there is an image in the question id 55643. Also the bot will change the workflow of the form to Rejected when the form is submitted
 
 Ans) BOT URL -> https://airflow.dfos.co:8080/api/v1/dags/hmcl_GlobalStandardBot_main_json_parser/dagRuns
+
 BOT CONFIG -> 
 ```JSON
 {
@@ -199,9 +200,8 @@ BOT CONFIG ->
 }
 ```
 ---
-<<<<<<< HEAD
 
-Q) In amber, I want to send a mail to the next multiple forms users and the mail content should have the foprm name as GEMBA.
+Q-2) In amber, I want to send a mail to the next multiple forms users and the mail content should have the foprm name as GEMBA.
 The form is used for scheduling other forms too. The form which it schedules are in module id 50.
 It chooses the form id from question id 1.
 meanwhile the user id is 70. and bot user id is too 70.
@@ -241,5 +241,16 @@ BOT CONFIG ->
 
 ```
 ---
-=======
->>>>>>> ad88ad9924612312293965fdc6866149730e8ff4
+Q-3 ) After submission, the form should go to “Pending at Approver 1” for PPap
+Ans) BOT URL -> https://airflow.dfos.co:8080/api/v1/dags/ppap_GlobalStandardBot_main_json_parser/dagRuns
+
+BOT CONFIG -> 
+```JSON
+{
+  "workflow_approval_status": {
+    "workflow_status": "5"
+  }
+}
+
+```
+---
